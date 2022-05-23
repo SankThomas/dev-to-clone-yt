@@ -20,12 +20,39 @@ export default function Person({ user }) {
         </button>
 
         <article className="mt-5">
+          {/* Rewatching the recorded video, I realized you can set the links and icons
+          to go to the respective social media page using the format below:
+          
+            <li className="text-sm flex items-center justify-start hover:text-black cursor-pointer mb-2">
+
+            // This is the part that changes by adding an anchor tag and href
+              <a href={`https://dev.to/${user.username}`} className="flex items-center justify-start">
+                <FaDev className="mr-1" /> @{user.username}
+              </a>
+
+            </li>
+          */}
           <ul className="lg:grid grid-cols-2 gap-3">
             <li className="text-sm flex items-center justify-start hover:text-black cursor-pointer mb-2">
-              <FaDev className="mr-1" /> @{user.username}
+              <a
+                href={`https://dev.to/${user.username}`}
+                target="_blank"
+                rel="noreferrer"
+                // Style the link so that it appears side by side with the icon
+                className="flex items-center justify-start"
+              >
+                <FaDev className="mr-1" /> @{user.username}
+              </a>
             </li>
             <li className="text-sm flex items-center justify-start hover:text-black cursor-pointer mb-2">
-              <FaTwitter className="mr-1" /> @{user.twitter_username}
+              <a
+                href={`https://twitter.com/${user.twitter_username}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-start"
+              >
+                <FaTwitter className="mr-1" /> @{user.twitter_username}
+              </a>
             </li>
             <li className="cursor-pointer mb-2">
               <a
@@ -38,7 +65,14 @@ export default function Person({ user }) {
               </a>
             </li>
             <li className="text-sm flex items-center justify-start hover:text-black cursor-pointer mb-2">
-              <FaGithub className="mr-1" /> @{user.github_username}
+              <a
+                href={`https://github.com/${user.github_username}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-start"
+              >
+                <FaGithub className="mr-1" /> @{user.github_username}
+              </a>
             </li>
           </ul>
         </article>
